@@ -1,11 +1,9 @@
-import imagen from '../images/imagen.jpg';
+import imagen1 from '../images/imagen1.jpg';
 
 const Home = () => {
     return(
         <div className="home">
-            <h1>vamos boquita</h1>
-            <h1>Rick and Morty</h1>
-            <img src={imagen} />
+            <img src={imagen1} />
         </div>
     )
 }

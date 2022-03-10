@@ -15,9 +15,9 @@ function Nav() {
       </Button>
       <Button onClick={() => console.log('Episodes')}>
         <NavLink to="/episodes">Episodes</NavLink>
-      </Button>
+      </Button>    
     </div>
   )
 }
 
-export default Nav
+export default Nav;

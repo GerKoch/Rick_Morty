@@ -1,5 +1,5 @@
 import Characters from '../pages/Characters';
-import Nav from '../components/HeaderNav';
+import Nav from '../components/Nav';
 import Footer from '../components/HeaderFooter';
 import Locations from '../pages/Locations';
 import Episodes from '../pages/Episodes';
