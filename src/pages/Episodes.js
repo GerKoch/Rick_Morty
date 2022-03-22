@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Button from "../components/Button";
 import CardEpisodes from "../components/CardEpisodes";
 
 const Episodes = () => {
@@ -7,6 +8,7 @@ const Episodes = () => {
     const [episodes, setEpisodes] = useState([]);
     const [episodios, setEpisodios] = useState([]);
     const [busqueda, setBusqueda] = useState("");
+    const [currentPage, setcurrentPage] = useState(0);
 
     useEffect(() => {
         fetch(apiUrl)
@@ -31,6 +33,20 @@ const Episodes = () => {
         });
         setEpisodes(resultadoBusqueda);
     }   
+
+    const filterEpisodes = () => {
+        return episodes.slice(currentPage, currentPage + 5)
+    }
+
+    const nextPage = () => {
+        if (currentPage < 15)
+        setcurrentPage(currentPage + 5)
+    }
+
+    const prevPage = () => {
+        if (currentPage > 0)
+        setcurrentPage(currentPage - 5)
+    }
     
     return (
         <div className="episodes">
@@ -43,8 +59,8 @@ const Episodes = () => {
                 />
             </div>
             <div className="episodes_center">
-                {episodes.length > 0 &&
-                    episodes.map(epis =>
+                {filterEpisodes().length > 0 &&
+                    filterEpisodes().map(epis =>
                         <CardEpisodes
                             key={epis.id}
                             id={epis.id}
@@ -53,6 +69,10 @@ const Episodes = () => {
                         />
                     )
                 }
+            </div>
+            <div>
+                <Button onClick={prevPage}>Prev</Button>
+                <Button onClick={nextPage}>Next</Button>
             </div>
         </div>
     )

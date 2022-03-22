@@ -2,9 +2,10 @@ import { NavLink } from 'react-router-dom';
 import Button from './Button';
 
 function Nav() {
-  return (
+
+   return (
     <div className="nav">
-      <Button onClick={() => console.log('Home')}>
+      <Button onClick={() => console.log('Home')}>    
         <NavLink to="/">Home</NavLink>
       </Button>
       <Button onClick={() => console.log('Characters')}>
@@ -15,7 +16,7 @@ function Nav() {
       </Button>
       <Button onClick={() => console.log('Episodes')}>
         <NavLink to="/episodes">Episodes</NavLink>
-      </Button>    
+      </Button>
     </div>
   )
 }

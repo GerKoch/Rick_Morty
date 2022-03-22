@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Button from "../components/Button";
 import CardLocation from '../components/CardLocation';
 
 const Location = () => {
@@ -7,6 +8,7 @@ const Location = () => {
     const [location, setLocation] = useState([]);
     const [locacion, setlocacion] = useState([]);
     const [busqueda, setBusqueda] = useState("");
+    const [currentPage, setcurrentPage] = useState(0);
 
     useEffect(() => {
         fetch(apiUrl)
@@ -32,6 +34,20 @@ const Location = () => {
         setLocation(resultadoBusqueda);
     }
 
+    const filterLocations = () => {
+        return location.slice(currentPage, currentPage + 5)
+    }
+
+    const nextPage = () => {
+        if (currentPage < 15)
+        setcurrentPage(currentPage + 5)
+    }
+
+    const prevPage = () => {
+        if (currentPage > 0)
+        setcurrentPage(currentPage - 5)
+    }
+
     return (
         <div className="locations">
             <div className='containerInput'>
@@ -43,8 +59,8 @@ const Location = () => {
                 />
             </div>
             <div className="locations_center">
-                {location.length > 0 &&
-                    location.map(loc =>
+                {filterLocations().length > 0 &&
+                    filterLocations().map(loc =>
                         <CardLocation
                             key={loc.id}
                             id={loc.id}
@@ -54,6 +70,10 @@ const Location = () => {
                         />
                     )
                 }
+            </div>
+            <div>
+            <Button onClick={prevPage}>Prev</Button>
+            <Button onClick={nextPage}>Next</Button>
             </div>
         </div>
     )

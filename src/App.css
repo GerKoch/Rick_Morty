@@ -5,6 +5,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: auto;
 }
 
 .dash {
@@ -20,33 +21,61 @@
 }
 
 .character_center {
-  column-count: 5;
   width: 1300px;
+  height: 455px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
 }
+
 
 .cardCharacter {
   display: inline-block;
   flex-direction: column;
-  background-color: rgb(190, 183, 80);
-  justify-content: center;
   color: black;
   border: 5px solid rgb(69, 83, 4);
-  border-radius: 7px;
+  border-radius: 50px;
   padding: 10px 10px;
   margin: 10px;
-  text-align: center;
   width: 200px;
-  height: 300px;
+  height: 200px;
+  background-image: radial-gradient( circle farthest-corner at 92.3% 71.5%,  rgba(69,83,4,1) 0%, rgba(190,183,80,1) 90% );
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .cardCharacter > img {
-  width: 150px;
-  border-radius: 10px;
+  width: 100%;
+  border-radius: 50px;
+  display: block;
 }
 
 .cardCharacter > p {
   text-align: center;
-  justify-content: left;
+  justify-content: center;
+}
+
+.cardCharacter > footer {
+  color: aliceblue;
+  width: 0%;
+  height: 100%;
+  background: rgba(53, 42, 73, 0.71);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 400ms ease-in-out;
+  left: 0;
+}
+
+.cardCharacter:hover footer {
+  width: 100%;
 }
 
 .locations {

@@ -16,6 +16,7 @@ const Dashboard = () => {
           <Route path="/characters" element={<Characters />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/episodes" element={<Episodes />} />
+          
         </Routes>
         <Footer />
       </BrowserRouter>
@@ -26,3 +27,4 @@ const Dashboard = () => {
 }
 
 export default Dashboard;
+
