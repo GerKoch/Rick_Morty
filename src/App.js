@@ -1,14 +1,12 @@
-import Dashboard from '../src/pages/Dashboard'
+import Dashboard from "./pages/Dashboard";
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <div className='section'>
-        <Dashboard />
-      </div>
+  return(
+    <div>
+      <Dashboard />
     </div>
-  );
+  )
 }
 
 export default App;
