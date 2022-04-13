@@ -1,17 +1,27 @@
 import styled from "styled-components";
+import Modal from '../../components/Modal';
+import Button from '../../components/button/Button';
+import { useState } from 'react';
 
 const CardCharacters = ({ id, name, image, species, status, gender }) => {
+
+    const [modal, setModal] = useState(false);
+
     return (
         <div>
             <Card>
-                <p>{name}</p>
-                <img src={image} />
-                <div>
-                    <p>Specie: {species}</p>
-                    <p>Status: {status}</p>
-                    <p>Gender: {gender}</p>
-                </div>
-                
+                <p onClick={() => setModal(!modal)}>{name}</p>
+                <img alt={id} src={image} onClick={() => setModal(!modal)}/>
+
+                <Modal state={modal}>
+                    <div>
+                        <p>Specie: {species}</p>
+                        <p>Status: {status}</p>
+                        <p>Gender: {gender}</p>
+                    </div>
+                    <Button onClick={() => setModal(false)}>OK</Button>
+                </Modal>
+
             </Card>
         </div>
     )
@@ -21,15 +31,18 @@ export default CardCharacters;
 
 const Card = styled.div`
   display: inline-block;
-  border: 5px solid darkgreen;
-  border-radius: 50px;
+  border-radius: 10px;
   text-align: center;
   justify-content: center;
-  margin: 10px 10px;
-  margin: 5px;
-  width: 90%;
-  height: 90%;
   cursor: pointer;
-  overflow: hidden;
+  overflow: auto;
   color: gray;
+  background-color: #000;
+  margin: 10px;
+
+  img{
+      border-radius: 10px 10px;
+    width: 100%;
+    height: 100%;
+  }
 `

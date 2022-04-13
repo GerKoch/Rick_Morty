@@ -16,18 +16,18 @@ const Characters = () => {
 
   const fetchCharacters = (url) => {
     fetch(url)
-    .then(res => res.json())
-    .then(res => {
-      setCharacters(res.results);
-      setPersonajes(res.results);
-      setInfo(res.info);
-      console.log(res)
-    })
-    .catch(error => console.log(error));
+      .then(res => res.json())
+      .then(res => {
+        setCharacters(res.results);
+        setPersonajes(res.results);
+        setInfo(res.info);
+        console.log(res)
+      })
+      .catch(error => console.log(error));
   }
 
   useEffect(() => {
-    fetchCharacters(apiUrl);   
+    fetchCharacters(apiUrl);
   }, [])
 
   const onPrevious = () => {
@@ -47,7 +47,7 @@ const Characters = () => {
 
   const filtrar = (terminoBusqueda) => {
     const resultadoBusqueda = personajes.filter((element) => {
-      if (element.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()) 
+      if (element.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
         ||
         element.species.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())) {
         return element;
@@ -71,10 +71,10 @@ const Characters = () => {
         />
       </BtnInput>
       <Pagination className="pag"
-        prev={info.prev} 
-        next={info.next} 
-        onPrevious={onPrevious} 
-        onNext={onNext} 
+        prev={info.prev}
+        next={info.next}
+        onPrevious={onPrevious}
+        onNext={onNext}
       />
       <BgChar>
         {filterCharacters().length > 0 &&
@@ -91,10 +91,10 @@ const Characters = () => {
         }
       </BgChar>
       <Pagination className="pag"
-        prev={info.prev} 
-        next={info.next} 
-        onPrevious={onPrevious} 
-        onNext={onNext} 
+        prev={info.prev}
+        next={info.next}
+        onPrevious={onPrevious}
+        onNext={onNext}
       />
     </div>
   )
@@ -105,6 +105,21 @@ export default Characters;
 const BgChar = styled.div`
   background-color: #000;
   column-count: 5;
+  @media(max-width: 1200px) {
+    column-count: 4;
+  }
+  @media(max-width: 922px) {
+    column-count: 3;
+  @media(max-width: 768px) {
+    column-count: 2;
+  }
+  @media(max-width: 600px) {
+    column-count: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  }
 `
 
 const BtnInput = styled.div`

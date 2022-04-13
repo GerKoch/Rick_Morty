@@ -17,4 +17,7 @@ const HomeImg = styled.div`
     background-color: black;
     display: flex;
     justify-content: center;
+    @media(max-width: 768px){
+        margin: auto;
+    }
 `

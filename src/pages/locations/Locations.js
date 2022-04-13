@@ -97,6 +97,21 @@ export default Locations;
 const BgLoc = styled.div`
     background-color: #000;
     column-count: 5;
+    @media(max-width: 1200px) {
+        column-count: 4;
+    }
+    @media(max-width: 922px) {
+        column-count: 3;
+    @media(max-width: 768px) {
+        column-count: 2;
+    }
+    @media(max-width: 600px) {
+        column-count: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  }
 `
 
 const BtnInput = styled.div`
